@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         SuraContentScreen.routeName: (_) => SuraContentScreen(),
       },
       initialRoute: HomeScreen.routeName,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
