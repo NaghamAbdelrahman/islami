@@ -14,7 +14,7 @@ class SuraStyleWidget extends StatelessWidget {
         '$content[$index]',
         textDirection: TextDirection.rtl,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.05),
+        style: Theme.of(context).textTheme.headline6,
       ),
     );
   }

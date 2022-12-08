@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/providers/settings_provider.dart';
 import 'package:islami/sura_content/sura_content_arguments.dart';
 import 'package:islami/sura_content/sura_style_widget.dart';
+import 'package:provider/provider.dart';
 
 class SuraContentScreen extends StatefulWidget {
   static const routeName = 'suraContent';
@@ -18,10 +20,11 @@ class _SuraContentScreenState extends State<SuraContentScreen> {
     SuraDetailsArguments args =
         ModalRoute.of(context)?.settings.arguments as SuraDetailsArguments;
     if (verses.isEmpty) readFile(args.index + 1);
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/background_image.png'),
+                image: AssetImage(settingsProvider.mainBackGroundImage()),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(
@@ -36,7 +39,7 @@ class _SuraContentScreenState extends State<SuraContentScreen> {
             child: verses.isEmpty
                 ? Center(
                     child: CircularProgressIndicator(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).accentColor,
                     ),
                   )
                 : ListView.separated(
@@ -49,7 +52,7 @@ class _SuraContentScreenState extends State<SuraContentScreen> {
                       return Container(
                         margin: const EdgeInsets.symmetric(horizontal: 50),
                         height: 1,
-                        color: Theme.of(context).primaryColor,
+                        color: Theme.of(context).accentColor,
                       );
                     },
                   ),
