@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 
 import '../../providers/settings_provider.dart';
 
-class ThemeBottomSheetTheme extends StatefulWidget {
+class ThemeBottomSheet extends StatefulWidget {
   @override
-  State<ThemeBottomSheetTheme> createState() => _ThemeBottomSheetThemeState();
+  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
 }
 
-class _ThemeBottomSheetThemeState extends State<ThemeBottomSheetTheme> {
+class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);

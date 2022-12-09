@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 
 import '../../providers/settings_provider.dart';
 
-class ThemeBottomSheetLocale extends StatefulWidget {
+class LanguageBottomSheet extends StatefulWidget {
   @override
-  State<ThemeBottomSheetLocale> createState() => _ThemeBottomSheetLocaleState();
+  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
 }
 
-class _ThemeBottomSheetLocaleState extends State<ThemeBottomSheetLocale> {
+class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
@@ -20,7 +20,7 @@ class _ThemeBottomSheetLocaleState extends State<ThemeBottomSheetLocale> {
         children: [
           InkWell(
               onTap: () {
-                settingsProvider.changeLocale(Locale('ar'));
+                settingsProvider.changeLocale(const Locale('ar'));
               },
               child: settingsProvider.isArabic()
                   ? selectedItem(AppLocalizations.of(context)!.arabic)
@@ -30,7 +30,7 @@ class _ThemeBottomSheetLocaleState extends State<ThemeBottomSheetLocale> {
           ),
           InkWell(
               onTap: () {
-                settingsProvider.changeLocale(Locale('en'));
+                settingsProvider.changeLocale(const Locale('en'));
               },
               child: settingsProvider.isArabic()
                   ? unSelectedItem(AppLocalizations.of(context)!.english)

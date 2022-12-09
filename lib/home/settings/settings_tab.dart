@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/settings/theme_bottom_sheet_localization.dart';
-import 'package:islami/home/settings/theme_bottom_sheet_theme.dart';
+import 'package:islami/home/settings/language_bottom_sheet_localization.dart';
+import 'package:islami/home/settings/theme_bottom_sheet.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +31,7 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           InkWell(
             onTap: () {
-              showThemeBottomSheetTheme();
+              showThemeBottomSheet();
             },
             child: Container(
               padding: EdgeInsets.all(12),
@@ -58,7 +58,7 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           InkWell(
             onTap: () {
-              showThemeBottomSheetLocale();
+              showLanguageBottomSheet();
             },
             child: Container(
               padding: EdgeInsets.all(12),
@@ -78,19 +78,19 @@ class _SettingsTabState extends State<SettingsTab> {
     );
   }
 
-  void showThemeBottomSheetTheme() {
+  void showThemeBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return ThemeBottomSheetTheme();
+          return ThemeBottomSheet();
         });
   }
 
-  void showThemeBottomSheetLocale() {
+  void showLanguageBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return ThemeBottomSheetLocale();
+          return LanguageBottomSheet();
         });
   }
 }
