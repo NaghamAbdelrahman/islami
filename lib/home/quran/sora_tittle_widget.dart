@@ -18,7 +18,7 @@ class SuraTittle extends StatelessWidget {
       child: Text(
         tittle,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.06),
+        style: (Theme.of(context).textTheme.headline4),
       ),
     );
   }
