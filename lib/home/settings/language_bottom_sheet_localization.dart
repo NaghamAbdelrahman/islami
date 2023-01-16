@@ -20,7 +20,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
         children: [
           InkWell(
               onTap: () {
-                settingsProvider.changeLocale(const Locale('ar'));
+                settingsProvider.changeLocale('ar');
               },
               child: settingsProvider.isArabic()
                   ? selectedItem(AppLocalizations.of(context)!.arabic)
@@ -30,7 +30,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
           ),
           InkWell(
               onTap: () {
-                settingsProvider.changeLocale(const Locale('en'));
+                settingsProvider.changeLocale('en');
               },
               child: settingsProvider.isArabic()
                   ? unSelectedItem(AppLocalizations.of(context)!.english)
