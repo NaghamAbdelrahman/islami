@@ -1,42 +1,65 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/core/api/api_manager.dart';
-import 'package:islami/core/model/Radio.dart';
-import 'package:islami/core/model/RadioResponse.dart';
-import 'package:islami/home/radio/radio_item.dart';
+
+import '../../core/model/Radios.dart';
 
 class RadioController extends StatefulWidget {
+  Radios radio;
+  AudioPlayer audioPlayer;
+
+  RadioController({required this.radio, required this.audioPlayer});
+
   @override
   State<RadioController> createState() => _RadioControllerState();
 }
 
 class _RadioControllerState extends State<RadioController> {
-  late AudioPlayer audioPlayer;
+  play() async {
+    await widget.audioPlayer.play(UrlSource(widget.radio.url ?? ''));
+  }
+
+  pause() async {
+    await widget.audioPlayer.pause();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<RadioResponse>(
-        future: ApiManager.fetchRadio(),
-        builder: (buildContext, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(
+    var screenSize = MediaQuery.of(context).size;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      width: screenSize.width,
+      child: Column(
+        children: [
+          Text(widget.radio.name ?? '',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline4),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: play,
+                icon: Icon(
+                  Icons.play_arrow_sharp,
+                  size: screenSize.height * 0.05,
+                ),
                 color: Theme.of(context).accentColor,
               ),
-            );
-          }
-          if (snapshot.hasError) {
-            return Center(
-              child: Text('error loading \n ${snapshot.error}'),
-            );
-          }
-          return ListView.builder(
-              scrollDirection: Axis.horizontal,
-              physics: const PageScrollPhysics(),
-              itemBuilder: (buildContext, index) {
-                return RadioItem(snapshot.data?.radios![index] ?? Radios());
-              },
-              itemCount: snapshot.data?.radios?.length);
-        });
+              SizedBox(width: screenSize.width * 0.07),
+              IconButton(
+                onPressed: pause,
+                icon: Icon(
+                  Icons.pause,
+                  size: screenSize.height * 0.05,
+                ),
+                color: Theme.of(context).accentColor,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

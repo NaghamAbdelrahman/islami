@@ -5,9 +5,13 @@ import 'package:islami/core/model/RadioResponse.dart';
 
 class ApiManager {
   static Future<RadioResponse> fetchRadio() async {
-    var response = await http
-        .get(Uri.parse('https://api.mp3quran.net/radios/radio_arabic.json'));
-    var jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
-    return RadioResponse.fromJson(jsonResponse);
+    var uri = Uri.parse('https://mp3quran.net/api/v3/radios');
+    var response = await http.get(uri);
+    if (response.statusCode == 200) {
+      var jsonResponse = jsonDecode(response.body);
+      return RadioResponse.fromJson(jsonResponse);
+    } else {
+      throw Exception('Failed to load radios');
+    }
   }
 }
