@@ -1,9 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/home/radio/radio_controller.dart';
+import 'package:islami/ui/home/radio/radio_controller.dart';
 
-import '../../core/api/api_manager.dart';
-import '../../core/model/RadioResponse.dart';
+import '../../../data/api/api_manager.dart';
+import '../../../data/model/RadioResponse.dart';
 
 class RadioTab extends StatelessWidget {
   AudioPlayer audioPlayer = AudioPlayer();

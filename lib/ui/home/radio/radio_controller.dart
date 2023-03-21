@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/model/Radios.dart';
+import '../../../data/model/Radios.dart';
 
 class RadioController extends StatefulWidget {
   Radios radio;

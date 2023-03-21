@@ -11,7 +11,7 @@ class SuraStyleWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 10),
       child: Text(
-        '$content[$index]',
+        '$content [$index]',
         textDirection: TextDirection.rtl,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline6,

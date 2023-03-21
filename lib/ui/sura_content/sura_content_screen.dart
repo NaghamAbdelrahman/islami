@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/providers/settings_provider.dart';
-import 'package:islami/sura_content/sura_content_arguments.dart';
-import 'package:islami/sura_content/sura_style_widget.dart';
+import 'package:islami/ui/sura_content/sura_content_arguments.dart';
+import 'package:islami/ui/sura_content/sura_style_widget.dart';
 import 'package:provider/provider.dart';
 
 class SuraContentScreen extends StatefulWidget {

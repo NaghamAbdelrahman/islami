@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/settings/language_bottom_sheet_localization.dart';
-import 'package:islami/home/settings/theme_bottom_sheet.dart';
 import 'package:islami/providers/settings_provider.dart';
+import 'package:islami/ui/home/settings/theme_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+
+import 'language_bottom_sheet_localization.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({Key? key}) : super(key: key);

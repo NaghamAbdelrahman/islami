@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/sura_content/sura_content_arguments.dart';
-import 'package:islami/sura_content/sura_content_screen.dart';
+
+import '../../sura_content/sura_content_arguments.dart';
+import '../../sura_content/sura_content_screen.dart';
 
 class SuraTittle extends StatelessWidget {
   String tittle;
