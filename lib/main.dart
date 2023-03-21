@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/hadeth_content/hadeth_content_screen.dart';
-import 'package:islami/home/home_screen.dart';
 import 'package:islami/my_theme.dart';
 import 'package:islami/providers/settings_provider.dart';
-import 'package:islami/sura_content/sura_content_screen.dart';
+import 'package:islami/ui/hadeth_content/hadeth_content_screen.dart';
+import 'package:islami/ui/home/home_screen.dart';
+import 'package:islami/ui/sura_content/sura_content_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

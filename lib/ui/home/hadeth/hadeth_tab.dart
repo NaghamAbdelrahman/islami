@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/home/hadeth/hadeth.dart';
-import 'package:islami/home/hadeth/hadeth_tittle_widget.dart';
+
+import 'hadeth.dart';
+import 'hadeth_tittle_widget.dart';
 
 class HadethTab extends StatefulWidget {
   @override

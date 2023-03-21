@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/quran/sora_tittle_widget.dart';
+import 'package:islami/ui/home/quran/sora_tittle_widget.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> names = [
@@ -122,42 +122,40 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Expanded(flex: 2, child: Image.asset('assets/images/quran_logo.png')),
-          Divider(
-            thickness: 2,
-            color: Theme.of(context).accentColor,
+    return Column(
+      children: [
+        Expanded(flex: 2, child: Image.asset('assets/images/quran_logo.png')),
+        Divider(
+          thickness: 2,
+          color: Theme.of(context).accentColor,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(2),
+          child: Text(AppLocalizations.of(context)!.suraName,
+              style: Theme.of(context).textTheme.headline4),
+        ),
+        Divider(
+          thickness: 2,
+          color: Theme.of(context).accentColor,
+        ),
+        Expanded(
+          flex: 5,
+          child: ListView.separated(
+            physics: const BouncingScrollPhysics(),
+            separatorBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 65),
+                height: 1,
+                color: Theme.of(context).accentColor,
+              );
+            },
+            itemBuilder: (context, index) {
+              return SuraTittle(names[index], index);
+            },
+            itemCount: names.length,
           ),
-          Padding(
-            padding: const EdgeInsets.all(2),
-            child: Text(AppLocalizations.of(context)!.suraName,
-                style: Theme.of(context).textTheme.headline4),
-          ),
-          Divider(
-            thickness: 2,
-            color: Theme.of(context).accentColor,
-          ),
-          Expanded(
-            flex: 5,
-            child: ListView.separated(
-              physics: BouncingScrollPhysics(),
-              separatorBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 65),
-                  height: 1,
-                  color: Theme.of(context).accentColor,
-                );
-              },
-              itemBuilder: (context, index) {
-                return SuraTittle(names[index], index);
-              },
-              itemCount: names.length,
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

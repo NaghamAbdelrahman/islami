@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:islami/core/model/RadioResponse.dart';
+
+import '../model/RadioResponse.dart';
 
 class ApiManager {
   static Future<RadioResponse> fetchRadio() async {

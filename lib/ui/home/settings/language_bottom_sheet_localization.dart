@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/settings_provider.dart';
+import '../../../providers/settings_provider.dart';
 
-class ThemeBottomSheet extends StatefulWidget {
+class LanguageBottomSheet extends StatefulWidget {
   @override
-  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
+  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
 }
 
-class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
+class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
@@ -20,21 +20,21 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
         children: [
           InkWell(
               onTap: () {
-                settingsProvider.changeTheme(ThemeMode.light);
+                settingsProvider.changeLocale('ar');
               },
-              child: settingsProvider.isDark()
-                  ? unSelectedItem(AppLocalizations.of(context)!.light)
-                  : selectedItem(AppLocalizations.of(context)!.light)),
+              child: settingsProvider.isArabic()
+                  ? selectedItem(AppLocalizations.of(context)!.arabic)
+                  : unSelectedItem(AppLocalizations.of(context)!.arabic)),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           InkWell(
               onTap: () {
-                settingsProvider.changeTheme(ThemeMode.dark);
+                settingsProvider.changeLocale('en');
               },
-              child: settingsProvider.isDark()
-                  ? selectedItem(AppLocalizations.of(context)!.dark)
-                  : unSelectedItem(AppLocalizations.of(context)!.dark)),
+              child: settingsProvider.isArabic()
+                  ? unSelectedItem(AppLocalizations.of(context)!.english)
+                  : selectedItem(AppLocalizations.of(context)!.english)),
         ],
       ),
     );

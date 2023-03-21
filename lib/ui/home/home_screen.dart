@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/hadeth/hadeth_tab.dart';
-import 'package:islami/home/quran/quran_tab.dart';
-import 'package:islami/home/radio/radio_tab.dart';
-import 'package:islami/home/sebha/sebha_tab.dart';
-import 'package:islami/home/settings/settings_tab.dart';
 import 'package:islami/providers/settings_provider.dart';
+import 'package:islami/ui/home/quran/quran_tab.dart';
+import 'package:islami/ui/home/radio/radio_tab.dart';
+import 'package:islami/ui/home/sebha/sebha_tab.dart';
+import 'package:islami/ui/home/settings/settings_tab.dart';
 import 'package:provider/provider.dart';
+
+import 'hadeth/hadeth_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = 'home';
@@ -71,6 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
     HadethTab(),
     SebhaTab(),
     RadioTab(),
-    SettingsTab()
+    const SettingsTab()
   ];
 }
